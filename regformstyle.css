@@ -1,0 +1,70 @@
+.container {
+    width: 30%;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    font-family: 'Oswald', sans-serif;
+   }
+   
+   input[type=text], input[type=password], input[type=email], input[type=tel], textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+   }
+   
+   input[type=radio] {
+    margin-right: 10px;
+   }
+   
+   .btn {
+    float: left;
+    width: 50%;
+    margin-top: 10px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+   }
+   
+   .btn.green {
+    background-color: #4CAF50;
+    color: white;
+   }
+   
+   .btn.red {
+    background-color: red;
+    color: white;
+   }
+   
+   .btn:hover {
+    background-color: yellow;
+   }
+   
+   .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+   }
+   
+   h1 {
+    text-align: center;
+   }
+   
+   label {
+    font-weight: bold;
+    display: block;
+   }
+   
+   textarea {
+    resize: vertical;
+   }
+
+   @media screen and (max-width: 600px) {
+    input[type=submit], input[type=reset] {
+     width: 100%;
+    }
+   }
