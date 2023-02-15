@@ -4,18 +4,35 @@
  <title>Registration Form</title>
  <link rel="stylesheet" type="text/css" href="style.css">
  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
-
-
 <script>
 
 function validateForm() {
-let passwordtext = document.forms["form"]["password"].value;
-let passwordtextError = document.forms["form"]["password"].value;
-  
-if (x < 8) {
-    ("Password must be at least 8 characters.");
-    return false;
-  }
+    var error = false;
+    
+    var password =document.forms["form"]["password"].value;
+    var passwordError = document.getElementById("passwordError");
+    if (password.length < 8) {
+        passwordError.textContent = "Password must be at least 8 characters.";
+        document.forms["form"]["password"].focus();
+	error = true;
+    } 
+
+    var Birth = document.forms["form"]["dob"].value;
+    var dobSplit = Birth.split("-");
+    var dobYear = dobSplit[2];
+    var _age = 2023 - dobYear;
+	
+    var dobError = document.getElementById("dobError");
+    if (_age < 21) {
+        dobError.textContent = "Minors are not allowed!";
+        document.forms["form"]["dob"].focus();
+	error = true;
+    } 
+
+    if (error != true){
+        var success = document.getElementById("success")
+        success.textContent = "Hooray! Your account has been successfully created.";
+    }
 }
 </script>
 </head>
@@ -23,6 +40,7 @@ if (x < 8) {
  <div class="container">
   <form id="form">
    <h1>Registration Form</h1>
+   <span id="success" class="success"></span>
    <label for="fname"><b>First Name</b></label>
    <input type="text" placeholder="Enter First Name" name="fname" >
 
@@ -37,9 +55,11 @@ if (x < 8) {
 
    <label for="password"><b>Password</b></label>
    <input type="password" placeholder="Enter Password" name="password">
+   <span id="passwordError" class = "error"></span>
 
    <label for="dob"><b>Date of Birth (dd/mm/yyyy)</b></label>
    <input type="date" placeholder="Enter Date of Birth" name="dob">
+   <span id="dobError" class = "error"></span>
 
    <label for="gender"><b>Gender</b></label>
    <input type="radio" name="gender" value="male" > Male
